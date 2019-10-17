@@ -1,0 +1,175 @@
+import time
+import timeit
+import random
+
+
+def timer():
+    a = True
+    count = 1
+    limit = 5
+    start = time.time()
+    while a is True:
+        if count <= limit:
+            print('\r', count, end="")
+            count += 1
+            time.sleep(1)
+        elif count > limit:
+            stop = time.time()
+            print('time up', int(stop-start),'Seconds')
+            break
+            a = False
+
+
+def timer1():
+    a = True
+    count = 1
+    limit = 5
+    start = time.time()
+    while a is True:
+        if count <= limit:
+            print(count, end = " ")
+            count += 1
+            time.sleep(1)
+        elif count > limit:
+            stop = time.time()
+            print('time taken', int(stop-start),'Seconds')
+            break
+            a = False
+
+
+def genraterandom():
+    #random.random(100)
+    r1 = random.randint(0,100)
+    r2 = random.randint(0, 100)
+    r3 = random.randint(0, 100)
+    print(r1, time.sleep(0.5), '+', r2, time.sleep(0.5), '+', r3)
+    r4 = r1 + r2 + r3
+    r5 = int(input('Enter the reply: '))
+
+
+def r5input():
+    r5 = 0
+    a = True
+    while a is True:
+        try:
+            r5 = int(input(''))
+            a = False
+        except ValueError:
+            print('Enter valid Number')
+        except NameError:
+            print('Enter valid Number')
+    return r5
+
+
+
+def playersetting():
+    while True:
+        try:
+            numberrange = int(input("Select the Number Range :"))
+            break
+        except ValueError:
+            print(" Enter Valid Number")
+
+    return numberrange
+
+
+def playersetting1():
+    while True:
+        try:
+            timerange = int(input("Select the Time Limit in Seconds :"))
+            break
+        except ValueError:
+            print(" Enter Valid Number")
+
+    return timerange
+
+
+
+def start():
+    print("This Game is all about FAST Calculation.")
+    #startgame = input('Enter [1] for Game Setting Or Press any other Key to Play : ')
+
+
+def main():
+    countcorrect = 0
+    count = 0
+    a = True
+    playgame = 0
+    while a is True:
+
+        playgame = input('Enter [s] for Game Setting\n'
+                         'Or Enter [1] to exit the Game\n'
+                         'Or Press any other Key to Play :').lower()
+        if playgame != "1" and playgame != 's':
+            start = time.time()
+            print('Enter the Sum of Number, within 5 Seconds !!!')
+            print('--->  ', end="")
+            time.sleep(1)
+            r1 = random.randint(0, 20)
+            r2 = random.randint(0, 20)
+            r3 = random.randint(0, 20)
+            print(r1, '+ ' , end="")
+            time.sleep(1)
+            print(r2, '+ ' , end="")
+            time.sleep(1)
+            print(r3, ' = ', end="")
+            r4 = r1 + r2 + r3
+            r5 = r5input()
+            stop = time.time()
+            timetaken = (stop - start)
+            if r5 == r4:
+                if timetaken > 5:
+                    print('YOU EXCEED THE TIME BY,', timetaken - 5, 'sec')
+                    count += 1
+                    time.sleep(2)
+                elif timetaken <= 5:
+                        print('Congratulation, respond in: ',timetaken,'seconds')
+                        countcorrect += 1
+                        count += 1
+                        time.sleep(2)
+            elif r5 != r4:
+                    print('SORRY...Better Luck next Time')
+                    count += 1
+                    time.sleep(2)
+
+        elif playgame == 's':
+            c1 = playersetting()
+            t1 = playersetting1()
+            start = time.time()
+            print(f'Enter the Sum of Number, within {t1} Seconds !!!')
+            print('--->  ', end="")
+            time.sleep(1)
+            r1 = random.randint(0, c1)
+            r2 = random.randint(0, c1)
+            r3 = random.randint(0, c1)
+            print(r1, '+ ', end="")
+            time.sleep(1)
+            print(r2, '+ ', end="")
+            time.sleep(1)
+            print(r3, ' = ', end="")
+            r4 = r1 + r2 + r3
+            r5 = r5input()
+            stop = time.time()
+            timetaken = (stop - start)
+            if r5 == r4:
+                if timetaken > t1:
+                    print('YOU EXCEED THE TIME BY,', timetaken - t1, 'sec')
+                    count += 1
+                    time.sleep(2)
+                elif timetaken <= t1:
+                    print('Congratulation, respond in: ', timetaken, 'seconds')
+                    countcorrect += 1
+                    count += 1
+                    time.sleep(2)
+            elif r5 != r4:
+                print('SORRY...Better Luck next Time')
+                count += 1
+                time.sleep(2)
+        elif playgame == "1":
+            time.sleep(2)
+            print(f'[\nYour Score :{countcorrect} out of {count} chance(s)')
+            break
+            a = False
+
+
+main()
