@@ -86,7 +86,10 @@ def playersetting1():
 
 
 def start():
-    print("This Game is all about FAST Calculation.")
+    print('\nFORTIFY SOLUTIONS')
+    print('\t\tVersion 1'
+          '\t\trelease date:17-Oct-2019\n')
+    print("\033[1;32;40mThis Game is all about FAST Calculation>>>>>-\033[0m\n")
     #startgame = input('Enter [1] for Game Setting Or Press any other Key to Play : ')
 
 
@@ -97,12 +100,12 @@ def main():
     playgame = 0
     while a is True:
 
-        playgame = input('Enter [s] for Game Setting\n'
-                         'Or Enter [1] to exit the Game\n'
-                         'Or Press any other Key to Play :').lower()
+        playgame = input('\033[1;34;40mEnter [\033[1;31;40ms\033[0m\033[1;34;40m] for Game Setting\n'
+                         'Or Enter [\033[1;31;40m1\033[0m\033[1;34;40m] to exit the Game\n'
+                         'Or Press any other Key to \033[1;31;40mPlay\033[0m :').lower()
         if playgame != "1" and playgame != 's':
-            start = time.time()
-            print('Enter the Sum of Number, within 5 Seconds !!!')
+
+            print('\n\033[1;31;40mEnter the Sum of Number, within 5 Seconds !!!\033[0m')
             print('--->  ', end="")
             time.sleep(1)
             r1 = random.randint(0, 20)
@@ -113,30 +116,31 @@ def main():
             print(r2, '+ ' , end="")
             time.sleep(1)
             print(r3, ' = ', end="")
+            start = time.time()
             r4 = r1 + r2 + r3
             r5 = r5input()
             stop = time.time()
             timetaken = (stop - start)
             if r5 == r4:
                 if timetaken > 5:
-                    print('YOU EXCEED THE TIME BY,', timetaken - 5, 'sec')
+                    print('\nYOU EXCEED THE TIME BY,', round(timetaken - 5,2), 'sec\n')
                     count += 1
                     time.sleep(2)
                 elif timetaken <= 5:
-                        print('Congratulation, respond in: ',timetaken,'seconds')
+                        print('\nCongratulation, respond in: ',round(timetaken,2),'seconds\n')
                         countcorrect += 1
                         count += 1
                         time.sleep(2)
             elif r5 != r4:
-                    print('SORRY...Better Luck next Time')
+                    print('\nSORRY...Better Luck next Time\n')
                     count += 1
                     time.sleep(2)
 
         elif playgame == 's':
             c1 = playersetting()
             t1 = playersetting1()
-            start = time.time()
-            print(f'Enter the Sum of Number, within {t1} Seconds !!!')
+
+            print(f'\n\033[1;31;40mEnter the Sum of Number, within {t1} Seconds !!!\033[0m')
             print('--->  ', end="")
             time.sleep(1)
             r1 = random.randint(0, c1)
@@ -147,29 +151,30 @@ def main():
             print(r2, '+ ', end="")
             time.sleep(1)
             print(r3, ' = ', end="")
+            start = time.time()
             r4 = r1 + r2 + r3
             r5 = r5input()
             stop = time.time()
             timetaken = (stop - start)
             if r5 == r4:
                 if timetaken > t1:
-                    print('YOU EXCEED THE TIME BY,', timetaken - t1, 'sec')
+                    print('\nYOU EXCEED THE TIME BY,', round(timetaken - t1,2), 'sec\n')
                     count += 1
                     time.sleep(2)
                 elif timetaken <= t1:
-                    print('Congratulation, respond in: ', timetaken, 'seconds')
+                    print('\nCongratulation, respond in: ', round(timetaken,2), 'seconds\n')
                     countcorrect += 1
                     count += 1
                     time.sleep(2)
             elif r5 != r4:
-                print('SORRY...Better Luck next Time')
+                print('\nSORRY...Better Luck next Time\n')
                 count += 1
                 time.sleep(2)
         elif playgame == "1":
-            time.sleep(2)
-            print(f'[\nYour Score :{countcorrect} out of {count} chance(s)')
+            time.sleep(1)
+            print(f'[\nYour Score :\033[31m{countcorrect}\033[0m out of \033[31m{count}\033[0m chance(s)')
             break
             a = False
 
-
+start()
 main()
