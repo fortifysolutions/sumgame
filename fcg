@@ -86,7 +86,7 @@ def playersetting1():
 
 
 def start():
-    print('\nFORTIFY SOLUTIONS')
+    print('\n\033[1;31mFORTIFY SOLUTIONS\033[0m')
     print('\t\tVersion 1'
           '\t\trelease date:17-Oct-2019\n')
     print("\033[1;32;40mThis Game is all about FAST Calculation>>>>>-\033[0m\n")
